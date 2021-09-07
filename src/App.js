@@ -5,7 +5,7 @@ import OrderPage from './pages/OrderPages/OrderPage';
 function App() {
   return (
     <div className="App">
-      {/* <MainPage /> */}
+      <MainPage />
       <OrderPage />
     </div>
   );
