@@ -68,7 +68,7 @@ const SearchBar = props => {
                         <div className="absolute w-6 bg-gray-400 rounded-full text-center">
                             {order.length}
                         </div>
-                        <img className="w-8/12 yellow-300" src={cart} alt="no"/>
+                        <img className="w-8/12" src={cart} alt="no"/>
                     </a>
                 </div>
             </div>

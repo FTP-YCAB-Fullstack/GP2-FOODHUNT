@@ -11,9 +11,10 @@ const AdminCard = props => {
     const approve = async (id) => {
         await axios.put(`https://6131f19fab7b1e001799b262.mockapi.io/orders/${id}`, {
             ...props,
-            approved: true
+            approved: true,
         });
     }
+
 
     console.log(props)
 
@@ -25,10 +26,11 @@ const AdminCard = props => {
             }}>
                 <div className="info flex flex-col p-6 gap-y-6 overflow-visible">
                     <h1 className="text-xl font-bold">Nama Pembeli: {props.name}</h1>
+                    <h1 className="text-xl font-bold">Tanggal Pemesanan: {props.date}</h1>
                     <h1 className="font-bold text-xl">No Meja: {props.table}</h1>
                 </div>
                 <div className="absolute right-2 bottom-2">
-                    <button disabled={props.approved ? true : false} className="bg-white px-4 py-2 rounded-lg"
+                     <button disabled={props.approved ? true : false} className="bg-white px-4 py-2 rounded-lg"
                     style={{
                         color: props.approved ? 'black' : null
                     }}

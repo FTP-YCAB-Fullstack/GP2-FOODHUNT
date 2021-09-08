@@ -26,7 +26,8 @@ const ModalCheckout = (props) => {
         await axios.post('https://6131f19fab7b1e001799b262.mockapi.io/orders', {
             ...form,
             order: [...props.order],
-            approved: false
+            approved: false,
+            date: new Date().toLocaleDateString()
         });
         swal({
             title: "Pesanan Diterima!",
