@@ -15,13 +15,13 @@ const OrderPage = props => {
     return (
         <>
             <div className="p-8">
-                <h1 className="text-3xl mb-6">Daftar Order</h1>
+                <h1 className="text-3xl mb-6 font-semibold text-yellow-500">Daftar Order</h1>
                 {order.map((el, i) => <OrderCard key={i} {...el} />)}
-                <h1 className="text-3xl mb-6 font-bold">Total - Rp. {total.toLocaleString()}</h1>
+                <h1 className="text-3xl mb-6 font-bold text-yellow-500">Total - Rp. {total.toLocaleString()}</h1>
                 <div className="flex justify-end">
                     <button disabled={order.length > 0 ? false : true} className="p-4 rounded-lg bg-gray-300 font-bold"
                     onClick={() => setOpenModal(true)} 
-                    >Checkout</button>
+                    >Buat Pesanan</button>
                 </div>
             </div>
             {openModal && <ModalCheckout order={order} closeModal={setOpenModal}/>}

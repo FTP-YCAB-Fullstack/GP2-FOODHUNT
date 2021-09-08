@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
-import ModalOrder from '../Modal/ModalOrder/ModalOrder';
 import cart from './cart.png';
 import './SearchBar.css';
 
 import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router';
 
 const SearchBar = props => {
     const order = useSelector(state => state.order)
+    const history = useHistory()
 
     const [openModal,setOpenModal] = useState(false)
     const [option, setOption] = useState([]);
@@ -34,7 +35,7 @@ const SearchBar = props => {
                     </datalist>
                 </div>
                 <div className="relative w-24">
-                    <a onClick={() => setOpenModal(true)} className="cursor-pointer">
+                    <a onClick={() => history.push("/order")} className="cursor-pointer">
                         <div className="absolute w-6 bg-gray-400 rounded-full text-center">
                             {order.length}
                         </div>
@@ -42,7 +43,6 @@ const SearchBar = props => {
                     </a>
                 </div>
             </div>
-            {openModal && <ModalOrder closeModal={setOpenModal}/>}
         </>
     )
 }

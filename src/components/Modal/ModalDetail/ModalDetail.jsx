@@ -23,12 +23,14 @@ const ModalDetail = (props) => {
       dispatch({type: 'ADD_ITEM', payload: {
         ...props
       }});
+      props.closeModal(false)
     }
 
     const removeItem = () => {
       dispatch({type: 'REMOVE_ITEM', payload: {
         ...props
       }});
+      props.closeModal(false)
     }
 
     return (

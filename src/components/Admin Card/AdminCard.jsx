@@ -15,6 +15,8 @@ const AdminCard = props => {
         });
     }
 
+    console.log(props)
+
     return (
         <>
             <div className="relative flex w-12/12 h-4/5 mb-4 flex-wrap justify-between bg-gray-300 rounded-lg" style={{
@@ -22,9 +24,8 @@ const AdminCard = props => {
                 color: props.approved ? 'white' : null
             }}>
                 <div className="info flex flex-col p-6 gap-y-6 overflow-visible">
-                    <h1 className="text-xl font-bold">{props.name}</h1>
-                    <h1 className="font-bold text-xl">{props.phone}</h1>
-                    <h1 className="font-xl font-semibold">{props.address}</h1>
+                    <h1 className="text-xl font-bold">Nama Pembeli: {props.name}</h1>
+                    <h1 className="font-bold text-xl">No Meja: {props.table}</h1>
                 </div>
                 <div className="absolute right-2 bottom-2">
                     <button disabled={props.approved ? true : false} className="bg-white px-4 py-2 rounded-lg"

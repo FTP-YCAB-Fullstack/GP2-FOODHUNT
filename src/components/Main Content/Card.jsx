@@ -7,17 +7,12 @@ const Cardcontent = (props) => {
 
   return (
     <>
-        <div className="foodCard w-72 bg-gray-100 shadow-lg rounded-md flex flex-col">
-          <div className="foto p-4 h-3/5">
+        <div className="foodCard cursor-pointer w-72 bg-gray-100 shadow-lg rounded-md flex flex-col transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110" onClick={() => setOpenModal(true)}>
+          <div className="foto p-4 h-3/4">
             <img src={props.strMealThumb} alt="Menu" className="w-full rounded-md h-full"/>
           </div>
-          <div className="Title p-4 h-1/5 flex flex-col">
+          <div className="Title p-4 h-1/4 flex flex-col">
             <p className="font-bold">{props.strMeal}</p>
-          </div>
-          <div className="p-2 h-20 flex justify-end items-end">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={() => setOpenModal(true)}
-            >Detail</button>
           </div>
         </div>
 
