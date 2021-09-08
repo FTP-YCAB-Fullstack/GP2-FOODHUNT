@@ -41,4 +41,4 @@ Aplikasi yang kami buat untuk memesan menu pada sebuah rumah makan, dikarenakan 
 
 ## Link Demo
 
-https://613870cef13c8c93e48c054e--fodh.netlify.app
+https://fodh.netlify.app
