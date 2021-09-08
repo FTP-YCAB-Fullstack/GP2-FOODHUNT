@@ -1,10 +1,14 @@
 import axios from 'axios';
 import React from 'react'
 import swal from 'sweetalert';
+import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 import './ModalCheckout.css'
 
 const ModalCheckout = (props) => {
+    const history = useHistory();
+    const dispatch = useDispatch();
     const [form, setForm] = React.useState({});
 
     const formHandler = e => {
@@ -29,9 +33,8 @@ const ModalCheckout = (props) => {
             icon: "success",
             });
         
-        setTimeout(() => {
-            window.location.reload();
-        },2500)
+        dispatch({type: 'RESET_STATE'});
+        props.closeModal(false)
         
     }
 

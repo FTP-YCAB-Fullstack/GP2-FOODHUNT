@@ -16,7 +16,11 @@ const MainPage = () => {
     }, [category]);
 
     React.useEffect(() => {
-        setFilter(state.filter(el => el.category === 'Chicken'))
+        if (category === '') {
+            setFilter(state.filter(el => el.category === 'Chicken'))
+        } else {
+            setFilter(state.filter(el => el.category === category))
+        }
     }, [state])
 
     return (

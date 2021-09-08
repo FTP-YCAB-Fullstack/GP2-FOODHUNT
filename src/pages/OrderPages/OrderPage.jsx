@@ -19,7 +19,7 @@ const OrderPage = props => {
                 {order.map((el, i) => <OrderCard key={i} {...el} />)}
                 <h1 className="text-3xl mb-6 font-bold">Total - Rp. {total.toLocaleString()}</h1>
                 <div className="flex justify-end">
-                    <button className="p-4 rounded-lg bg-gray-300 font-bold"
+                    <button disabled={order.length > 0 ? false : true} className="p-4 rounded-lg bg-gray-300 font-bold"
                     onClick={() => setOpenModal(true)} 
                     >Checkout</button>
                 </div>

@@ -14,6 +14,7 @@ import Login from './pages/Login/Login'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import PrivateRoute from './routes/PrivateRoute';
 import Navbar from './components/Navbar/NavBar'
+import PublicRoutes from './routes/PublicRoutes';
 
 function App() {
   const auth = useSelector(state => state.auth);
@@ -39,9 +40,9 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/' component={MainPage}/>
-          <Route exact path='/order' component={OrderPage}/>
+          <PublicRoutes exact path='/login' component={Login} />
+          <PublicRoutes exact path='/' component={MainPage}/>
+          <PublicRoutes exact path='/order' component={OrderPage}/>
           <PrivateRoute exact path='/admin' component={AdminPage}/>
         </Switch>
       </Router>

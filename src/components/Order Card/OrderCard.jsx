@@ -20,7 +20,7 @@ const OrderCard = props => {
                 <span className="font-bold text-xl">Quantity</span>
                 <input onChange={setQuantity} className="text-center ml-2 w-12 h-8" type="number" min="1" value={props.quantity} />
             </div>
-            <div className="images w-32 self-center">
+            <div className="mr-8 images w-32 self-center">
                 <img className="rounded-lg w-full h-full" src={props.strMealThumb} alt="" />
             </div>
         </div>

@@ -1,11 +1,10 @@
 import React from 'react';
-import {useSelector} from 'react-redux'
 import {Route, Redirect} from 'react-router-dom'
 
 const PrivateRoute = props => {
-    const auth =  useSelector(state => state.auth)
+    const authStorage = localStorage.getItem('authenticated')
     return (
-        auth ? <Route {...props} /> : <Redirect to='/' />
+        authStorage ? <Route {...props} /> : <Redirect to='/' />
     )
 }
 

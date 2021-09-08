@@ -15,8 +15,8 @@ const Navbar = () => {
     return(
         <nav className="flex">
             <div className="flex gap-x-6 ml-4 p-2 text-yellow-500 font-semibold" >
-                    <Link to="/">Home</Link>
-                    <Link to="/order">Order</Link>
+                    {auth ?  null : <Link to="/">Home</Link>} 
+                    {auth ? null : <Link to="/order">Order</Link>}
             </div>
             <div className="flex gap-x-6 mr-4 p-2 w-full justify-end text-yellow-500 font-semibold">
                 {auth ? <p onClick={logout} style={{cursor: 'pointer'}}>Logout</p> : <Link to="/login">Login</Link>}
