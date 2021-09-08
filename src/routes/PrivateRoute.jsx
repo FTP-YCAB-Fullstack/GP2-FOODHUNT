@@ -1,25 +1,12 @@
 import React from 'react';
 import {useSelector} from 'react-redux'
 import {Route, Redirect} from 'react-router-dom'
-import { getToken } from './Common';
 
-// const PrivateRoute = props => {
-//     const auth = localStorage.getItem('authenticated')
-//     return (
-//       <Route
-//         {...rest}
-//         render={(props) => getToken() ? <Component {...props} /> : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
-//       />
-//     )
-//   }
-
-
-function PrivateRoute({ component: Component, ...rest }) {
+const PrivateRoute = props => {
+    const auth =  useSelector(state => state.auth)
     return (
-      <Route
-        {...rest}
-        render={(props) => getToken() ? <Component {...props} /> : <Redirect to={{ pathname: '/login', state: { from: props.location } }} />}
-      />
+        auth ? <Route {...props} /> : <Redirect to='/' />
     )
-  }
+}
+
 export default PrivateRoute;

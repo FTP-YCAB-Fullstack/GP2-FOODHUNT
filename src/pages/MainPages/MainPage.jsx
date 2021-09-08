@@ -8,12 +8,16 @@ import SearchBar from './../../components/Search Bar/SearchBar'
 const MainPage = () => {
     const state = useSelector(state => state.data);
     const order = useSelector(state => state.order)
-    const [category, setCategory] = React.useState('Beef');
+    const [category, setCategory] = React.useState('');
     const [filter, setFilter] = React.useState([]);
     
     React.useEffect(() => {
         setFilter(state.filter(el => el.category === category));
-    }, [state, category]);
+    }, [category]);
+
+    React.useEffect(() => {
+        setFilter(state.filter(el => el.category === 'Chicken'))
+    }, [state])
 
     return (
         <div className="Mainpage">

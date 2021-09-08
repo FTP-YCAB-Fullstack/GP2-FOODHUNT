@@ -6,6 +6,11 @@ import './ModalAdmin.css'
 
 const ModalAdmin = (props) => {
 
+    const approveHandler = () => {
+        props.approve(props.id);
+        props.setReRender(state => !state);
+    }
+
     return (
         <div className="modalBg w-screen h-screen top-0 fixed flex justify-center items-center" style={{left: 0}}>
             <div className="modalAdmin h-4/5 items-center bg-gray-200 shadow-lg flex flex-col p-4 gap-y-4 rounded-md">
@@ -22,7 +27,7 @@ const ModalAdmin = (props) => {
                     <p className="w-1/2 text-right">Rp. {props.order.reduce((acc, val) => acc + (val.quantity * val.price), 0).toLocaleString()}</p>
                 </div>
                 <div className="approveBtn w-11/12 flex justify-end">
-                    <button disabled={props.approved ? true : false} onClick={() => props.approve(props.id)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{props.approved ? 'APPROVED' : 'Approve'}</button>
+                    <button disabled={props.approved ? true : false} onClick={approveHandler} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">{props.approved ? 'APPROVED' : 'Approve'}</button>
                 </div>
             </div>
         </div>

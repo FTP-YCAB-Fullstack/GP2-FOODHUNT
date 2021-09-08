@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 const initialState = {
     data: [],
     order: [],
+    auth: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -53,7 +54,30 @@ const reducer = (state = initialState, action) => {
     if (action.type === 'LOGIN') {
         return {
             ...state,
-            authenticated: true
+            auth: true
+        }
+    }
+
+    if (action.type === 'RESET_STATE') {
+        let resetCarted = [...state.data];
+        resetCarted = resetCarted.map(el => {
+            return {
+                ...el,
+                carted: false
+            }
+        });
+
+        return {
+            ...state,
+            data: resetCarted,
+            order: []
+        }
+    }
+
+    if (action.type === 'LOGOUT') {
+        return {
+            ...state,
+            auth: false
         }
     }
 

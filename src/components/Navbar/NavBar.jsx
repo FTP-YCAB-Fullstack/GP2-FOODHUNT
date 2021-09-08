@@ -1,10 +1,15 @@
 import React from "react";
-import { Link, Router } from "react-router-dom";
+import { Link, Router, useHistory } from "react-router-dom";
+import {useSelector, useDispatch} from 'react-redux';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const auth = useSelector(state => state.auth)
+    const history = useHistory();
     const logout = async () => {
         localStorage.removeItem('authenticated');
-        window.location.reload();
+        dispatch({type: 'LOGOUT'});
+        history.push('/')
     }
 
     return(
@@ -14,8 +19,8 @@ const Navbar = () => {
                     <Link to="/order">Order</Link>
             </div>
             <div className="flex gap-x-6 mr-4 p-2 w-full justify-end text-yellow-500 font-semibold">
-                {localStorage.getItem('authenticated') ? <p onClick={logout} style={{cursor: 'pointer'}}>Logout</p> : <Link to="/login">Login</Link>}
-                {localStorage.getItem('authenticated') ? <Link to='/admin'>Admin</Link> : null}
+                {auth ? <p onClick={logout} style={{cursor: 'pointer'}}>Logout</p> : <Link to="/login">Login</Link>}
+                {auth ? <Link to='/admin'>Admin</Link> : null}
             </div>
         </nav>
 

@@ -13,8 +13,6 @@ const AdminCard = props => {
             ...props,
             approved: true
         });
-
-        window.location.reload();
     }
 
     return (
@@ -29,7 +27,7 @@ const AdminCard = props => {
                     <h1 className="font-xl font-semibold">{props.address}</h1>
                 </div>
                 <div className="absolute right-2 bottom-2">
-                    <button className="bg-white px-4 py-2 rounded-lg"
+                    <button disabled={props.approved ? true : false} className="bg-white px-4 py-2 rounded-lg"
                     style={{
                         color: props.approved ? 'black' : null
                     }}
