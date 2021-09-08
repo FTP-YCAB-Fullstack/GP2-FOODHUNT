@@ -40,3 +40,5 @@ Aplikasi yang kami buat untuk memesan menu pada sebuah rumah makan, dikarenakan 
 - Rizky Ferrari - https://github.com/Ferraridiaz
 
 ## Link Demo
+
+https://613870cef13c8c93e48c054e--fodh.netlify.app
