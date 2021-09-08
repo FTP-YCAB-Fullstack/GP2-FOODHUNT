@@ -5,8 +5,6 @@ import Cardcontent from "../../components/Main Content/Card";
 import Header from "../../components/Navbar/Header"
 import SearchBar from './../../components/Search Bar/SearchBar'
 
-import {result} from './../../logic/logic'
-
 const MainPage = () => {
     const state = useSelector(state => state.data);
     const order = useSelector(state => state.order)

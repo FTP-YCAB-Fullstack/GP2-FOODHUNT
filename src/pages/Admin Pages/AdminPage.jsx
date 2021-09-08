@@ -17,8 +17,8 @@ const AdminPage = props => {
     }, [reRender])
 
     return (
-        <div className="px-8 my-6">
-            <h1 className="text-2xl font-bold">Order Admin</h1>
+        <div className="px-8 my-6 gap-y-2 ">
+            <h1 className="text-2xl font-bold text-yellow-400 mb-8">Order Admin</h1>
             {order.map(el => <AdminCard setReRender={setReRender} {...el} />)}
         </div>
     )

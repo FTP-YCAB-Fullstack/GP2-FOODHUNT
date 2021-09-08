@@ -72,10 +72,10 @@ const SearchBar = props => {
                     </a>
                 </div>
             </div>
-            <div className="flex flex-wrap justify-center">
-                {option.map((el, i) => <button disabled={done[el.strCategory] ? true : false} onClick={() => filters(el.strCategory)} className="cursor-pointer p-2 m-2 bg-yellow-300" style={{
+            <div className="flex flex-wrap justify-center gap-x-2">
+                {option.map((el, i) => <div className="w-36 gap-x-2"><button disabled={done[el.strCategory] ? true : false}  className="w-24" onClick={() => filters(el.strCategory)} className="w-full cursor-pointer p-2 m-2 bg-yellow-300" style={{
                     backgroundColor: done[el.strCategory] ? 'red' : 'gold'
-                }} key={i}>{el.strCategory}</button>)}
+                }} key={i}>{el.strCategory}</button></div>)}
             </div>
         </>
     )
