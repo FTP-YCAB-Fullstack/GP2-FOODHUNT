@@ -21,6 +21,9 @@ Aplikasi yang kami buat untuk memesan menu pada sebuah rumah makan, dikarenakan 
 1. Silahkan melakukan clone ke local
 2. Lalu masuk ke code editor
 3. Pertama-tama install teknologi yang digunakan yaitu dengan cara melakukan `npm install` di terminal, jika sudah melakukan install user dapat melakukan `npm start` dan aplikasi sudah bisa dijalankan di local
+4. Untuk login ke bagian admin silahkan masukkan Username dan Password:
+   -Username: admin
+   -Password: admin123
 
 ## Contributor
 
