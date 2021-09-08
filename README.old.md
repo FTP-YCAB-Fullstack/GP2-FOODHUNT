@@ -25,6 +25,13 @@ Aplikasi yang kami buat untuk memesan menu pada sebuah rumah makan, dikarenakan 
    -Username: admin
    -Password: admin123
 
+## Fitur Yang Terdapat Di Aplikasi
+
+1. User dapat melihat tampilan makanan dan search bar pada home page
+2. User dapat melakukan search menu berdasarkan kategori pada kolom search
+3. Ketika user akan memesan makanan maka user akan dialihkan ke order page dan mengisi form yang berisi nama dan nomor meja
+4. Jika user masuk sebagai admin maka user dapat menerima pesanan yang telah di order dan melakukan approve
+
 ## Contributor
 
 - Ihsan - https://github.com/NeoGlanding
