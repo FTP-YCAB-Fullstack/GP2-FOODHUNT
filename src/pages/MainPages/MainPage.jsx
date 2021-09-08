@@ -5,6 +5,8 @@ import Cardcontent from "../../components/Main Content/Card";
 import Header from "../../components/Navbar/Header"
 import SearchBar from './../../components/Search Bar/SearchBar'
 
+import {result} from './../../logic/logic'
+
 const MainPage = () => {
     const state = useSelector(state => state.data);
     const order = useSelector(state => state.order)
@@ -12,7 +14,6 @@ const MainPage = () => {
     const [filter, setFilter] = React.useState([]);
     
     React.useEffect(() => {
-        // setFilter(state.filter(el => el.category === category));
         function result(x) {
             let result = [];
             let arr = x.split(' ');
@@ -22,7 +23,7 @@ const MainPage = () => {
             result = result.filter(el => el.length !== 0);
             result = result.flat(1);
             return result
-        } 
+        }
 
         setFilter(result(category));
     }, [category]);
@@ -31,7 +32,17 @@ const MainPage = () => {
         if (category === '') {
             setFilter(state.filter(el => el.category === 'Chicken'))
         } else {
-            setFilter(state.filter(el => el.category === category))
+            function result(x) {
+                let result = [];
+                let arr = x.split(' ');
+                arr.forEach(el => {
+                    result.push(state.filter(x => x.category === el))
+                });
+                result = result.filter(el => el.length !== 0);
+                result = result.flat(1);
+                return result
+            }
+            setFilter(result(category))
         }
     }, [state])
 
