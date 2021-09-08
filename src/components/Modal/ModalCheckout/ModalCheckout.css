@@ -1,0 +1,10 @@
+.modalcheck {
+    width: 40%;
+}
+
+@media (max-width: 640px) {
+    .modalcheck {
+        width: 100%;
+        height: 60%;
+    }
+}

@@ -1,0 +1,9 @@
+.modalAdmin {
+    width: 40%;
+}
+
+@media (max-width: 640px) {
+    .modalAdmin {
+        width: 80%;
+    }
+}
