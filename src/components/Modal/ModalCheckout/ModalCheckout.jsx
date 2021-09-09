@@ -18,7 +18,6 @@ const ModalCheckout = (props) => {
             ...form,
             [name]: value
         });
-        console.log(form);
     }
 
     const submitHandler = async e => {
