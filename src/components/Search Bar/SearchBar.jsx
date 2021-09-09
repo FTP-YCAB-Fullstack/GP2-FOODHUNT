@@ -1,35 +1,82 @@
+import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
-import ModalOrder from '../Modal/ModalOrder/ModalOrder';
 import cart from './cart.png';
-import './SearchBar.css'
+import './SearchBar.css';
+
+import {useSelector} from 'react-redux';
+import { useHistory } from 'react-router';
 
 const SearchBar = props => {
+    const order = useSelector(state => state.order)
+    const history = useHistory();
+
+    const [done, setDone] = React.useState({
+        Beef: false,
+        Breakfast: false,
+        Chicken: false,
+        Dessert: false,
+        Goat: false,
+        Lamb: false,
+        Miscellaneous: false,
+        Pasta: false,
+        Pork: false,
+        Seafood:false,
+        Side: false,
+        Starter: false,
+        Vegan: false,
+        Vegetarian: false  
+    })
+
+    const filters = (category) => {
+        props.setCategory(state => `${category} ${state}`);
+        setDone(state => {
+            return {
+                ...state,
+                [category]: true
+            }
+        })
+    }
+
     const [openModal,setOpenModal] = useState(false)
+    const [option, setOption] = useState([]);
 
+    const changeCategory = e => {
+        props.setCategory(e.target.value);
+        let copyDone = {...done};
+        for (let state in copyDone) {
+            copyDone[state] = false
+        };
+        setDone(copyDone)
+    }
 
+    React.useEffect(() => {
+        axios.get('https://www.themealdb.com/api/json/v1/1/list.php?c=list').then(res => {
+            let {meals} = res.data;
+            setOption(meals)
+        })
+    }, [])
 
     return (
         <>
             <div className="flex justify-center gap-x-4">
-                <div className="flex w-6/12">
-                    <input list="category" type="search" className="searchBox border-2 bg-gray-300 rounded-lg w-full px-4" placeholder="Masukan Kategori"/>
-                    <datalist id="category">
-                        <option value="Beef"/>
-                        <option value="Vegan"/>
-                        <option value="Chicken"/>
-                    </datalist>
+                <div className="w-96">
+                    <input list="category" type="search" className="searchBox border-2 bg-gray-300 rounded-lg w-full p-4" onChange={changeCategory} placeholder="Masukan Kategori" value={props.category}/>
                 </div>
-                <div className="relative">
-                    <a onClick={() => setOpenModal(true)} className="cursor-pointer">
+                <div className="relative w-24">
+                    <a onClick={() => history.push("/order")} className="cursor-pointer">
                         <div className="absolute w-6 bg-gray-400 rounded-full text-center">
-                            1
+                            {order.length}
                         </div>
-                        <img className="w-6/12 yellow-300" src={cart} alt="no"/>
+                        <img className="w-8/12" src={cart} alt="no"/>
                     </a>
                 </div>
             </div>
-            {openModal && <ModalOrder closeModal={setOpenModal}/>}
+            <div className="flex flex-wrap justify-center gap-x-2">
+                {option.map((el, i) => <div className="w-36 gap-x-2"><button disabled={done[el.strCategory] ? true : false}  className="w-24" onClick={() => filters(el.strCategory)} className="w-full cursor-pointer p-2 m-2 bg-yellow-300" style={{
+                    backgroundColor: done[el.strCategory] ? 'red' : 'gold'
+                }} key={i}>{el.strCategory}</button></div>)}
+            </div>
         </>
     )
 }
