@@ -15,9 +15,6 @@ const AdminCard = props => {
         });
     }
 
-
-    console.log(props)
-
     return (
         <>
             <div className="relative flex w-12/12 h-4/5 mb-4 flex-wrap justify-between bg-gray-300 rounded-lg" style={{
